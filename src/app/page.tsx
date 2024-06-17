@@ -9,7 +9,7 @@ export default async function Home() {
   async function getDestinations() {
     "use server";
     const res = await fetch(
-      "http://ilman-travel-lxvx.vercel.app/api/destination",
+      "https://ilman-travel-lxvx-4cu7unpvu-abdij09s-projects.vercel.app/api/destination",
       {
         next: { revalidate: 10 },
       }
