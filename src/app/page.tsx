@@ -16,7 +16,7 @@ export default async function Home() {
   }
 
   const data = await getDestinations();
-
+  console.log(data);
   return (
     <>
       <div className="container overflow-hidden">
