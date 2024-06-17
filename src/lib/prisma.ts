@@ -13,3 +13,5 @@ if (process.env.NODE_ENV !== "production") {
 } else {
   (globalThis as any).prisma = prisma;
 }
+
+export default prisma;
