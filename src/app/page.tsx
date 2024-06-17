@@ -3,7 +3,7 @@ import Hero from "@/components/Hero";
 import Memories from "@/components/Memories";
 import Services from "@/components/Services";
 import Navbar from "@/components/ui/navbar";
-
+export const fetchCache = "force-no-store";
 export default async function Home() {
   async function getDestinations() {
     "use server";
@@ -12,7 +12,6 @@ export default async function Home() {
         "https://ilman-travel.vercel.app/api/destination",
         {
           cache: "no-store",
-          next: { revalidate: 10 },
         }
       );
       return await destinations.json();
