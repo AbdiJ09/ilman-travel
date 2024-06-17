@@ -3,17 +3,9 @@ import Hero from "@/components/Hero";
 import Memories from "@/components/Memories";
 import Services from "@/components/Services";
 import Navbar from "@/components/ui/navbar";
-import { useEffect, useState } from "react";
-
+import { getDestinations } from "@/lib/data";
 export default async function Home() {
-  async function getDestination() {
-    const res = await fetch(
-      "https://ilman-travel-fnqm.vercel.app/api/destination"
-    );
-    const data = await res.json();
-    return data;
-  }
-  const data = await getDestination();
+  const destinations = await getDestinations();
 
   return (
     <>
@@ -22,7 +14,7 @@ export default async function Home() {
         <main>
           <Hero />
           <Services />
-          <ExploreDestination destinations={data} />
+          <ExploreDestination destinations={destinations} />
           <Memories />
         </main>
         <footer className="mt-10 py-5 flex gap-3 items-center justify-center">
