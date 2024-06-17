@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 export default async function Home() {
   async function getDestinations() {
     "use server";
-    const res = await fetch("https://localhost:3000/api/destination", {
+    const res = await fetch("http://localhost:3000/api/destination", {
       next: { revalidate: 10 },
     });
     const data = await res.json();

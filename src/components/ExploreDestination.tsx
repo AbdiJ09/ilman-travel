@@ -87,16 +87,7 @@ const ExploreDestination = ({ destinations }: any) => {
                       destinationDetail === destination.id ? "expanded" : ""
                     }`}
                   >
-                    <CardHeader className="p-0 h-60">
-                      <Image
-                        src={destination.image_url}
-                        width={350}
-                        priority
-                        height={350}
-                        className="w-full h-full object-cover object-bottom"
-                        alt=""
-                      />
-                    </CardHeader>
+                    <CardHeader className="p-0 h-60"></CardHeader>
                     <CardContent className="py-2 px-4">
                       <div className="flex justify-between items-center">
                         <h1 className="text-2xl font-bold text-zinc-800">
