@@ -1,6 +1,6 @@
 import { prisma } from "@/lib/prisma";
 
-export async function getDestinations() {
+export async function GET() {
   const destinations = await prisma.destination.findMany();
-  return destinations;
+  return new Response(JSON.stringify(destinations));
 }

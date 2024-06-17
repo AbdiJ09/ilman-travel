@@ -3,9 +3,24 @@ import Hero from "@/components/Hero";
 import Memories from "@/components/Memories";
 import Services from "@/components/Services";
 import Navbar from "@/components/ui/navbar";
-import { getDestinations } from "@/lib/data";
+
 export default async function Home() {
+  async function getDestinations() {
+    "use server";
+    try {
+      const destinations = await fetch(
+        "https://ilman-travel.vercel.app/api/destination",
+        {
+          cache: "no-store",
+        }
+      );
+      return await destinations.json();
+    } catch (e) {
+      console.log(e);
+    }
+  }
   const destinations = await getDestinations();
+  console.log(destinations);
 
   return (
     <>
