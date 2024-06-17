@@ -6,17 +6,6 @@ import Navbar from "@/components/ui/navbar";
 import { useEffect, useState } from "react";
 
 export default async function Home() {
-  async function getDestinations() {
-    "use server";
-    const res = await fetch("http://localhost:3000/api/destination", {
-      next: { revalidate: 10 },
-    });
-    const data = await res.json();
-    return data;
-  }
-
-  const data = await getDestinations();
-
   return (
     <>
       <div className="container overflow-hidden">
@@ -24,7 +13,7 @@ export default async function Home() {
         <main>
           <Hero />
           <Services />
-          <ExploreDestination destinations={data} />
+          <ExploreDestination destinations={[]} />
           <Memories />
         </main>
         <footer className="mt-10 py-5 flex gap-3 items-center justify-center">
