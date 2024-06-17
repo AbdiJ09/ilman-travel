@@ -1,4 +1,3 @@
-"use client";
 import ExploreDestination from "@/components/ExploreDestination";
 import Hero from "@/components/Hero";
 import Memories from "@/components/Memories";
@@ -6,20 +5,15 @@ import Services from "@/components/Services";
 import Navbar from "@/components/ui/navbar";
 import { useEffect, useState } from "react";
 
-export default function Home() {
-  const [data, setData] = useState([]);
-  const fetchData = async () => {
+export default async function Home() {
+  async function getDestination() {
     const res = await fetch(
       "https://ilman-travel-fnqm.vercel.app/api/destination"
     );
     const data = await res.json();
-    console.log(data);
-    setData(data);
-  };
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+    return data;
+  }
+  const data = await getDestination();
 
   return (
     <>
