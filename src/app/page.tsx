@@ -12,6 +12,7 @@ export default async function Home() {
         "https://ilman-travel.vercel.app/api/destination",
         {
           cache: "no-store",
+          next: { revalidate: 10 },
         }
       );
       return await destinations.json();
