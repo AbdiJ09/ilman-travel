@@ -8,9 +8,12 @@ import { useEffect, useState } from "react";
 export default async function Home() {
   async function getDestinations() {
     "use server";
-    const res = await fetch("http://localhost:3000/api/destination", {
-      next: { revalidate: 10 },
-    });
+    const res = await fetch(
+      "http://ilman-travel-okfa.vercel.app/api/destination",
+      {
+        next: { revalidate: 10 },
+      }
+    );
     const data = await res.json();
     return data;
   }
